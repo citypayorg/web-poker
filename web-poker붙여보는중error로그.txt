@@ -1,0 +1,50 @@
+>>> SUBSCRIBE
+id:sub-31
+destination:/GameController/chat
+
+
+stomp.service.ts:68 >>> SUBSCRIBE
+id:sub-32
+destination:/GameController/leaveNotify
+
+
+room.component.ts:121 AUTHORIZING USER  1
+stomp.service.ts:68 >>> SEND
+destination:/stompApi/user/authorization
+content-length:105
+
+{"protocol":"eppr/sn","version":"1.0.0","namespace":"eppr/user-auth","schema":"authorization","userID":1}
+stomp.service.ts:68 <<< MESSAGE
+destination:/userInterceptor/AuthController/challenge
+content-type:application/json;charset=UTF-8
+subscription:sub-0
+message-id:uycrlrzh-0
+content-length:171
+
+{"protocol":"eppr/sn","version":"1.0.0","namespace":"eppr/user-auth","schema":"challenge","claimToken":"2174644c-b07c-4bc0-bc7d-b10b7acf481e","roomID":11,"action":"LOGIN"}
+room.component.ts:132 BACKWARD VALIDATION
+stomp.service.ts:68 >>> SEND
+destination:/stompApi/user/backwardValidation
+content-length:133
+
+{"protocol":"eppr/sn","version":"1.0.0","namespace":"eppr/user-auth","schema":"backwardValidation","action":"LOGIN","idChallenge":10}
+stomp.service.ts:68 <<< MESSAGE
+destination:/userInterceptor/AuthController/rejected
+content-type:application/json;charset=UTF-8
+subscription:sub-1
+message-id:uycrlrzh-1
+content-length:89
+
+{"protocol":"eppr/sn","version":"1.0.0","namespace":"eppr/user-auth","schema":"rejected"}
+
+
+
+------------------------------------------------
+<<< MESSAGE
+destination:/userInterceptor/AuthController/rejected
+content-type:application/json;charset=UTF-8
+subscription:sub-1
+message-id:nscxajwi-5
+content-length:89
+
+{"protocol":"eppr/sn","version":"1.0.0","namespace":"eppr/user-auth","schema":"rejected"}

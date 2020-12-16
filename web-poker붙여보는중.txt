@@ -57,8 +57,13 @@ npm i @angular/cli@8.1.0
 
 ng serve
 
-
-
+--------------------------------
 방화벽!!!!
 room 서버 8045
 
+로그 path D:\\poker\\web-poker\\log
+D:\poker\web-poker\backend\room\src\main\resources\application.properties
+
+D:\poker\web-poker\frontend\cli-toolkit\src\app\app.component.ts
+8081,8082,8083
+--------------------------------
