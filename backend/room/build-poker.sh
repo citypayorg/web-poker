@@ -7,4 +7,4 @@ docker push alexander171294/web-poker-room
 docker tag alexander171294/web-poker-room alexander171294/web-poker-room:$1
 docker push alexander171294/web-poker-room:$1
 docker rm room-poker
-docker run --name room-poker --env ORCHESTRATOR_IP="192.168.1.189" -p 8081:8081 -it alexander171294/web-poker-room
+docker run --name room-poker --env ORCHESTRATOR_IP="192.168.1.189" -p 8081:8081 -it bankno1004/web-poker-room

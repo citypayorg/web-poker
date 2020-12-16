@@ -1,0 +1,64 @@
+﻿https://github.com/alexander171294/web-poker
+
+npm install -g @angular/cli
+
+spring.datasource.url=jdbc:mysql://127.0.0.1:3306/poker?autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true
+spring.datasource.username=CTPHoldem
+spring.datasource.password=gkgk^^12
+
+
+------------------------------------------------------------
+java 를 10으로 다운 그레이드 
+C:\Java\jdk-10.0.1\bin
+
+cd D:\poker\web-poker\backend\builder
+d:
+build.sh
+------------------------------------------------------------
+cd D:\poker\web-poker\backend\builder
+d:
+cd ../exchange
+mvn clean install
+cd ../persistence
+mvn clean install
+cd ../room-int
+mvn clean install
+cd ../room-poker/room-poker
+mvn clean install
+cd ../../room
+mvn clean package
+cd ../orchestrator
+mvn clean package
+cd ../ApiServer
+mvn clean package
+------------------------------------------------------------
+#run-apiSrv.sh
+cd D:\poker\web-poker\backend\ApiServer\target
+d:
+java -jar ApiServer-0.0.1.jar
+
+#run-Orchestrator.sh
+cd D:\poker\web-poker\backend\orchestrator\target
+d:
+java -jar orchestrator-0.0.1.jar
+
+#run-Room.sh
+cd D:\poker\web-poker\backend\room\target
+d:
+java -jar room-0.0.1.jar
+
+--------------------------------
+https://github.com/angular/angular-cli
+
+
+cd D:\poker\web-poker\frontend\newClient
+d:
+npm i @angular/cli@8.1.0
+
+ng serve
+
+
+
+방화벽!!!!
+room 서버 8045
+

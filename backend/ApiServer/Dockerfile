@@ -14,9 +14,9 @@ ENV FLYWAY="true"
 ENV SMTP="smtp.gmail.com"
 ENV EMAIL="web.poker@tandilserver.com"
 ENV EMAIL_PASSWORD=""
-ENV DB_URL="jdbc:mysql://127.0.0.1:3307/poker?autoReconnect=true"
-ENV DB_USERNAME="root"
-ENV DB_PASSWORD="321654987"
+ENV DB_URL="jdbc:mysql://127.0.0.1:1004/CTPHoldem?autoReconnect=true"
+ENV DB_USERNAME="CTPHoldem"
+ENV DB_PASSWORD="gkgk^^12"
 ENV CORS="http://localhost:4200"
 
 

@@ -11,9 +11,9 @@ ENV MAX_POOL_SIZE="10"
 ENV ORCHESTRATOR_LISTEN_PORT="8045"
 
 # TODO: MOVE TO DOCKER SECRET
-ENV DB_URL="jdbc:mysql://127.0.0.1:3307/poker?autoReconnect=true"
-ENV DB_USERNAME="root"
-ENV DB_PASSWORD="321654987"
+ENV DB_URL="jdbc:mysql://127.0.0.1:1004/CTPHoldem?autoReconnect=true"
+ENV DB_USERNAME="CTPHoldem"
+ENV DB_PASSWORD="gkgk^^12"
 
 ENTRYPOINT ["java","-jar",\
             "-Dserver.port=${SERVER_PORT}",\

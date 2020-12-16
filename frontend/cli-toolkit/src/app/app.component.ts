@@ -12,9 +12,9 @@ import { environment } from 'src/environments/environment';
 export class AppComponent {
   title = 'cli-toolkit';
 
-  private roomServer = '127.0.0.1:8081';
-  private orchestratorServer = '127.0.0.1:8082';
-  private apiServer = 'http://127.0.0.1:8083';
+  private roomServer = '192.168.0.201:8081';
+  private orchestratorServer = '192.168.0.201:8082';
+  private apiServer = 'http://192.168.0.201:8083';
   private commandPrompt: string;
   private debugMode: boolean;
 
@@ -84,7 +84,7 @@ export class AppComponent {
     }
   }
 
-  // Command writter helper // 
+  // Command writter helper //
   authCMD() {
     this.commandPrompt = 'room.authorization userID:"1"';
     document.getElementById('commandPrompt').focus();
