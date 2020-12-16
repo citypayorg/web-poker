@@ -78,10 +78,11 @@ export class RoomComponent implements OnInit, OnDestroy {
         }
         obsrv.subscribe(resp => {
           if (resp.operationSuccess) {
+            console.log('########### /frontend/newClient/src/app/pages/room/room.component.ts ngOnInit() 81 ###########');
             if (!this.isDeposit) {
               this.connecting = 'Last validation.';
             }
-            // console.log('Backward validation for challenge: ', resp.challengeID);
+            console.log('Backward validation for challenge: ', resp.challengeID);
             this.backwardValidation(resp.challengeID, this.isDeposit);
           } else {
             // TODO: trigger error popup.
