@@ -35,7 +35,8 @@ public class WebSocketConfig extends  WebSocketMessageBrokerConfigurationSupport
 	public void registerStompEndpoints(StompEndpointRegistry registry) {
         RequestUpgradeStrategy upgradeStrategy = new TomcatRequestUpgradeStrategy();
 
-        registry.addEndpoint("/external").setAllowedOrigins("http://localhost:8000", "*").addInterceptors(new IpHandshakeInterceptor()).withSockJS(); //endpoints externos
+        // registry.addEndpoint("/external").setAllowedOrigins("http://localhost:8000", "*").addInterceptors(new IpHandshakeInterceptor()).withSockJS(); //endpoints externos
+        registry.addEndpoint("/external").setAllowedOrigins("http://192.168.0.212:8000", "*").addInterceptors(new IpHandshakeInterceptor()).withSockJS(); //endpoints externos
         registry.addEndpoint("/external")
         .setHandshakeHandler(new DefaultHandshakeHandler(upgradeStrategy))
         .setAllowedOrigins("*")

@@ -66,4 +66,48 @@ D:\poker\web-poker\backend\room\src\main\resources\application.properties
 
 D:\poker\web-poker\frontend\cli-toolkit\src\app\app.component.ts
 8081,8082,8083
+D:\poker\web-poker\backend\room\src\main\java\ar\com\tandilweb\room\wsconfig\WebSocketConfig.java
+http://localhost:8000  ????? 
 --------------------------------
+112.157.65.160
+192.168.0.212
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxx 싷패(fail) xxxxxxxxxx
+--applicationhost.config
+C:\Windows\System32\inetsrv\config
+<binding protocol="http" bindingInformation="*:4200:127.0.0.1" />
+
+C:\windows\system32\drivers\etc\hosts
+127.0.0.1 poker.citypay.org
+
+iis -->  web.config
+
+ng build --prod
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+webpack://
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+D:\poker\web-poker\backend\ApiServer\src\main\resources\application.properties
+# spring.cors.allow=http://localhost:4200
+spring.cors.allow=http://poker.citypay.org
+D:\poker\web-poker\backend\room\src\main\java\ar\com\tandilweb\room\wsconfig\WebSocketConfig.java
+
+D:\poker\web-poker\frontend\newClient\src\environments\environment.ts
+  // apiServer: 'http://localhost:8083/',
+  apiServer: 'http://112.157.65.160:8083/',
+
+
+---------------------
+cmd 관리자 권한으로 실행
+cd D:\poker\web-poker\frontend\newClient
+d:
+
+ng serve
+ng generate component component-name
+ng build --prod
+ng test
+ng e2e
+DevTools listening on ws://127.0.0.1:54403/devtools/browser/d3170dcc-6f80-4cb3-b507-5cc3d88e757b
+방화벽 54403 포트 열어 줌
+http://0.0.0.0:9876/
+DevTools listening on ws://127.0.0.1:55834/devtools/browser/7c77cbf2-6576-466d-8659-9bc5aafe5b81

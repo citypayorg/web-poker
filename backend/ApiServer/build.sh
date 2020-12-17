@@ -8,4 +8,4 @@ docker tag alexander171294/web-poker-api alexander171294/web-poker-api:$1
 docker push alexander171294/web-poker-api:$1
 docker rm apiServer
 # echo -n "smtp.gmail.com"|docker secret create mail.smtpserver -
-docker run --name apiServer --env DB_URL="jdbc:mysql://192.168.0.201:1004/poker?autoReconnect=true&useSSL=false" -p 8083:8083 -it alexander171294/web-poker-api:latest
+docker run --name apiServer --env DB_URL="jdbc:mysql://112.157.65.160:1004/poker?autoReconnect=true&useSSL=false" -p 8083:8083 -it alexander171294/web-poker-api:latest

@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { AuthInterceptorService } from './security/auth-interceptor.service';
 import { ActionMenuFriendsComponent } from './pages/lobby/components/action-menu-friends/action-menu-friends.component';
 import { SoonModalComponent } from './utils/components/soon-modal/soon-modal.component';
+import { ComponentNameComponent } from './component-name/component-name.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { SoonModalComponent } from './utils/components/soon-modal/soon-modal.com
     VcardComponent,
     TableComponent,
     ActionMenuFriendsComponent,
-    SoonModalComponent
+    SoonModalComponent,
+    ComponentNameComponent
   ],
   imports: [
     BrowserModule,

@@ -17,6 +17,8 @@ exports.config = {
   },
   directConnect: true,
   baseUrl: 'http://localhost:4200/',
+  // baseUrl: 'http://poker.citypay.org/  ',
+  // baseUrl: 'http://112.157.65.160:4200/',
   framework: 'jasmine',
   jasmineNodeOpts: {
     showColors: true,

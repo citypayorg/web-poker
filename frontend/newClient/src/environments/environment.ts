@@ -6,6 +6,7 @@ export const environment = {
   production: false,
   version: '0.0.3-ALPHA',
   apiServer: 'http://localhost:8083/',
+  // apiServer: 'http://112.157.65.160:8083/',
   refreshProfileTime: 2500,
   stompDebug: true
 };
