@@ -4,7 +4,7 @@ npm install -g @angular/cli
 
 spring.datasource.url=jdbc:mysql://127.0.0.1:3306/poker?autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true
 spring.datasource.username=CTPHoldem
-spring.datasource.password=gkgk^^12
+spring.datasource.password=비밀번호는비밀
 
 
 ------------------------------------------------------------
@@ -54,8 +54,11 @@ https://github.com/angular/angular-cli
 cd D:\poker\web-poker\frontend\newClient
 d:
 npm i @angular/cli@8.1.0
-
 ng serve
+
+cd D:\poker\web-poker\frontend\newClient
+d:
+ng serve --prod --disable-host-check --host=0.0.0.0
 
 --------------------------------
 방화벽!!!!
@@ -79,7 +82,7 @@ C:\Windows\System32\inetsrv\config
 <binding protocol="http" bindingInformation="*:4200:127.0.0.1" />
 
 C:\windows\system32\drivers\etc\hosts
-127.0.0.1 poker.citypay.org
+192.168.0.212 poker.citypay.org
 
 iis -->  web.config
 
