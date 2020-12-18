@@ -69,6 +69,7 @@ D:\poker\web-poker\backend\room\src\main\resources\application.properties
 
 D:\poker\web-poker\frontend\cli-toolkit\src\app\app.component.ts
 8081,8082,8083
+112.157.65.160:8081
 D:\poker\web-poker\backend\room\src\main\java\ar\com\tandilweb\room\wsconfig\WebSocketConfig.java
 http://localhost:8000  ????? 
 --------------------------------
@@ -76,13 +77,15 @@ http://localhost:8000  ?????
 192.168.0.212
 
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxx 싷패(fail) xxxxxxxxxx
+xxxxxxxxxx 실패(fail) xxxxxxxxxx
 --applicationhost.config
 C:\Windows\System32\inetsrv\config
 <binding protocol="http" bindingInformation="*:4200:127.0.0.1" />
 
 C:\windows\system32\drivers\etc\hosts
-192.168.0.212 poker.citypay.org
+192.168.0.212       poker.citypay.org
+192.168.0.212       api.poker.citypay.org
+192.168.0.212       room.poker.citypay.org
 
 iis -->  web.config
 
@@ -114,3 +117,28 @@ DevTools listening on ws://127.0.0.1:54403/devtools/browser/d3170dcc-6f80-4cb3-b
 방화벽 54403 포트 열어 줌
 http://0.0.0.0:9876/
 DevTools listening on ws://127.0.0.1:55834/devtools/browser/7c77cbf2-6576-466d-8659-9bc5aafe5b81
+
+---------- 2020-12-18
+D:\poker\web-poker\backend\ApiServer\src\main\resources\application.properties
+spring.cors.allow=http://localhost:4200
+spring.cors.allow=http://api.poker.citypay.org
+spring.cors.allow=http://room.poker.citypay.org
+spring.cors.allow=http://poker.citypay.org
+spring.cors.allow=http://112.157.65.160
+
+
+-------------------------------
+2020-12-17
+D:\poker\web-poker\frontend\newClient\src\app\pages\room\room.component.ts
+console.log('########### /frontend/newClient/src/app/pages/room/room.component.ts ngOnInit() 81 ###########');
+
+cd D:\poker\web-poker\backend\builder
+d:
+cd ../room-int
+mvn clean install
+cd ../room-poker/room-poker
+mvn clean install
+cd ../../room
+mvn clean package
+
+-------------------------------
