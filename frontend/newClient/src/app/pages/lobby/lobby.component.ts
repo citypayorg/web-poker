@@ -75,5 +75,9 @@ export class LobbyComponent implements OnInit, OnDestroy {
   soon(){
      this.sms.show();
   }
+  tsfn_goCtp(){
+    const url = 'https://exc.citypay.org';
+    window.open(url, '_blank');
+  }
 
 }

@@ -13,7 +13,7 @@ ENV ORCHESTRATOR_LISTEN_PORT="8045"
 # TODO: MOVE TO DOCKER SECRET
 ENV DB_URL="jdbc:mysql://127.0.0.1:1004/CTPHoldem?autoReconnect=true"
 ENV DB_USERNAME="CTPHoldem"
-ENV DB_PASSWORD="비밀번호는비밀"
+ENV DB_PASSWORD="gkgk^^12"
 
 ENTRYPOINT ["java","-jar",\
             "-Dserver.port=${SERVER_PORT}",\

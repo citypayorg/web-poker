@@ -12,11 +12,14 @@ import { environment } from 'src/environments/environment';
 export class AppComponent {
   title = 'cli-toolkit';
 
-  private roomServer = '192.168.0.212:8081';
-  private orchestratorServer = '192.168.0.212:8082';
-  private apiServer = 'http://192.168.0.212:8083';
-  private commandPrompt: string;
-  private debugMode: boolean;
+// private roomServer = '192.168.0.212:8081';
+private roomServer = 'room.poker.citypay.org';
+private orchestratorServer = '112.157.65.160:8082';
+// private orchestratorServer = 'orche.poker.citypay.org';
+// private apiServer = 'http://192.168.0.212:8083';
+private apiServer = 'http://api.poker.citypay.org';
+private commandPrompt: string;
+private debugMode: boolean;
 
   callSize: number;
   check: boolean = false;

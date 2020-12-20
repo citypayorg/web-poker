@@ -34,6 +34,21 @@ export class RoomService {
 
   constructor(private ws: WsRoomService, private terminal: TerminalService) {}
 
+  //2020-12-20 위치이동
+  leave() {
+    const cm = new LeaveReq();
+    const dBlock = new MessageDefinition();
+    dBlock.data = cm;
+    dBlock.endpoint = '/game/leave';
+    dBlock.prefix = '/stompApi';
+    this.ws.sendMessage(dBlock);
+  }
+
+  onLeave(data) {
+    this.terminal.log('Leave: ' + data.position);
+    this.reactionEvent.emit(new ReactionEvents(RxEType.LEAVE, data));
+  }
+
   public connect(serverIP: string) {
 
     let res = /([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}):([0-9]+)/gm.exec(serverIP);
@@ -131,7 +146,7 @@ export class RoomService {
     dBlock.prefix = '/stompApi';
     this.ws.sendMessage(dBlock);
   }
-
+  
   backwardValidation(challengeID: number, deposit: boolean) {
     this.terminal.out('Backward Validation CID ['+challengeID+']', this.serviceName);
     const bV = new BackwardValidation();
@@ -184,15 +199,6 @@ export class RoomService {
     const dBlock = new MessageDefinition();
     dBlock.data = cm;
     dBlock.endpoint = '/game/bridge';
-    dBlock.prefix = '/stompApi';
-    this.ws.sendMessage(dBlock);
-  }
-
-  leave() {
-    const cm = new LeaveReq();
-    const dBlock = new MessageDefinition();
-    dBlock.data = cm;
-    dBlock.endpoint = '/game/leave';
     dBlock.prefix = '/stompApi';
     this.ws.sendMessage(dBlock);
   }
@@ -326,11 +332,6 @@ export class RoomService {
   onChat(data) {
     this.terminal.log('Chat: ' + data.message);
     this.reactionEvent.emit(new ReactionEvents(RxEType.CHAT, data));
-  }
-
-  onLeave(data) {
-    this.terminal.log('Leave: ' + data.position);
-    this.reactionEvent.emit(new ReactionEvents(RxEType.LEAVE, data));
   }
 
   onBetDecision(data) {

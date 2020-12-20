@@ -12,6 +12,7 @@ import { ChallengeActions } from 'src/app/services/network/epprProtocol/userAuth
 import { Deposit } from 'src/app/services/network/epprProtocol/clientOperations/Deposit';
 import { RxEType } from 'src/app/services/network/ReactionEvents';
 import { Subscription } from 'rxjs';
+import { LeaveReq } from 'src/app/services/network/epprProtocol/game/LeaveReq'; //12-20
 
 @Component({
   selector: 'app-room',
@@ -78,7 +79,8 @@ export class RoomComponent implements OnInit, OnDestroy {
         }
         obsrv.subscribe(resp => {
           if (resp.operationSuccess) {
-            console.log('########### /frontend/newClient/src/app/pages/room/room.component.ts ngOnInit() 81 ###########');
+            // console.log('########### /frontend/newClient/src/app/pages/room/room.component.ts ngOnInit() 81 ###########');
+            // console.log('1500');
             if (!this.isDeposit) {
               this.connecting = 'Last validation.';
             }
@@ -94,7 +96,7 @@ export class RoomComponent implements OnInit, OnDestroy {
         });
       }
       if (data === 12) { // Autenticado
-        console.error('SETTED OFF');
+        // console.error('SETTED OFF');
         this.connecting = undefined;
       }
       if (data === 13) {
@@ -151,6 +153,18 @@ export class RoomComponent implements OnInit, OnDestroy {
         back = parseInt(this.route.params['value'].round) + 1;
       }
       this.router.navigateByUrl('/room/' + this.roomID + '/' + back);
+    }
+    //2020-12-20
+    if (event === 'leave') {
+      console.log('leave');
+      const cm = new LeaveReq();
+      const dBlock = new MessageDefinition();
+      dBlock.data = cm;
+      dBlock.endpoint = '/game/leave';
+      dBlock.prefix = '/stompApi';
+      this.ws.sendMessage(dBlock);
+      this.router.navigate(['/lobby']);
+      window.close();
     }
   }
 

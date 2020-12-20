@@ -3,14 +3,21 @@ Cruciales:
     - invalid deposit no avisa. (Completar datos de disponible en deposito). [REST DONA]
     - Report bug button.
     - espera ante la entrada de nuevo jugador (buscar reglas)
+결정적인:
+    -단계를 순서대로 따르지 않으면 Ingress 이벤트가 트리거되지 않습니다.
+    -유효하지 않은 입금은 경고하지 않습니다. (입금 가능한 전체 세부 정보). [기부]
+    -버그 신고 버튼.
+    -새로운 플레이어의 입장을 기다립니다 (규칙 찾기)
 
     Demo:
-
     - Auto reconect rom->orchestrator.
+	자동 재 연결 ROM-> 오케 스트레이터.
     - bug ciega chica all in saltea ciega grande.
-
+	스몰 블라인드 버그 올인은 빅 블라인드를 건너 뜁니다.
     - Autoidle (cuando estas desconectado y pasas 3 veces salirse de la mesa)
+	Autoidle (오프라인 상태에서 테이블을 떠나는 데 3 번 소비)
     - Timmer fin de corte.
+	절단 타이머 종료.
 
 Dona:
     - Rest para obtener la cantidad de fichas disponibles en mi cuenta.--DONE
@@ -24,12 +31,29 @@ Dona:
     - Enviar al mail un codigo para recuperar la constraseña. --DONE
     - News
     - Rules
+부인:
+    -내 계정에서 사용 가능한 칩의 양을 얻으려면 휴식을 취하십시오.-완료
+    -플레이어 계속 휴식-완료
+    -팔로우 한 플레이어 목록-완료
+    -인게임 받기
+    -보기 활성화 (단일 및 다중)
+    -프로필, 사진 등
+    -등록 확인-완료
+    -계정 확인을 위해 이메일로 코드 보내기-완료
+    -비밀번호를 복구하기 위해 이메일로 코드를 보냅니다. -기부
+    -뉴스
+    -규칙
 
 Adicionales:
     - Shop
     - Config
     - Help
     - Muck (evitar mostrar cartas al final).
+추가 :
+    -상점
+    -구성
+    -도움말
+    -Muck (끝에 카드를 보여주지 마십시오).
 
 Para testear:
     - enviar nuevo estado de fichas en cuenta cuando se recupera de un pot por ejemplo. (yo lo haría en las fases de cartas)
@@ -38,3 +62,10 @@ Para testear:
     - al entrar al room abrir nueva pestaña
     - cuando jwt está expirado mandar al login.
     - Salirse de la mesa. (recuperar fichas)
+테스트하려면 :
+    -예를 들어 팟에서 복구 할 때 새로운 상태의 칩을 계정으로 보냅니다. (카드 단계에서 할 것입니다)
+    -벌레에 모두 맹인.
+    -Ace as 1 in straight
+    -방에 들어갈 때 새 탭을 엽니 다.
+    -jwt가 만료되면 로그인으로 보냅니다.
+    -테이블에서 내려. (칩 회수)

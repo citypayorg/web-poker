@@ -62,13 +62,18 @@ ng serve --prod --disable-host-check --host=0.0.0.0
 
 --------------------------------
 방화벽!!!!
-room 서버 8045
+room 서버 8045 --> 8082
 
 로그 path D:\\poker\\web-poker\\log
 D:\poker\web-poker\backend\room\src\main\resources\application.properties
 
 D:\poker\web-poker\frontend\cli-toolkit\src\app\app.component.ts
 8081,8082,8083
+poker.citypay.org --> 
+orche.poker.citypay.org --> 8082
+api.poker.citypay.org --> 8083
+room.poker.citypay.org --> 8081
+
 112.157.65.160:8081
 D:\poker\web-poker\backend\room\src\main\java\ar\com\tandilweb\room\wsconfig\WebSocketConfig.java
 http://localhost:8000  ????? 
@@ -85,9 +90,22 @@ C:\Windows\System32\inetsrv\config
 C:\windows\system32\drivers\etc\hosts
 192.168.0.212       poker.citypay.org
 192.168.0.212       api.poker.citypay.org
+192.168.0.212       orche.poker.citypay.org
 192.168.0.212       room.poker.citypay.org
+############################################################
+############### 2020-12-19 room 서버 세팅!!!!!!!
+############################################################
+D:\poker\web-poker\backend\room\src\main\resources\clientDetails.properties
+act.room.RoomAuth.serverPublicIP=112.157.65.160
 
-iis -->  web.config
+############################################################
+############### 2020-12-19 orchestrator 서버 세팅!!!!!!!
+D:\poker\web-poker\frontend\cli-toolkit\src\app\app.component.ts
+// private orchestratorServer = '192.168.0.212:8082'; 를 private orchestratorServer = 'orche.poker.citypay.org'; 로 변경
+따라서
+D:\poker\web-poker\backend\ApiServer\src\main\resources\application.properties
+orche.poker.citypay.org 추가
+############################################################
 
 ng build --prod
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -113,8 +131,25 @@ ng generate component component-name
 ng build --prod
 ng test
 ng e2e
-DevTools listening on ws://127.0.0.1:54403/devtools/browser/d3170dcc-6f80-4cb3-b507-5cc3d88e757b
-방화벽 54403 포트 열어 줌
+
+--------------------- log ---------------------
+err
+Jasmine started
+
+  workspace-project App
+    × should display welcome message
+      - Failed: No element found using locator: By(css selector, app-root .content span)
+
+https://www.tutorialspoint.com/angular_cli/angular_cli_ng_e2e.htm
+
+D:\poker\web-poker\frontend\newClient\src\app\app.component.html 변경
+
+DevTools listening on ws://127.0.0.1:63098/devtools/browser/9807ee88-8941-4c2f-a788-eb6bbf4bc3dc
+Jasmine started
+  workspace-project App
+    √ should display welcome message
+Executed 1 of 1 spec SUCCESS in 1 sec.
+---------------------
 http://0.0.0.0:9876/
 DevTools listening on ws://127.0.0.1:55834/devtools/browser/7c77cbf2-6576-466d-8659-9bc5aafe5b81
 
@@ -124,9 +159,12 @@ spring.cors.allow=http://localhost:4200
 spring.cors.allow=http://api.poker.citypay.org
 spring.cors.allow=http://room.poker.citypay.org
 spring.cors.allow=http://poker.citypay.org
-spring.cors.allow=http://112.157.65.160
+spring.cors.allow=http://orche.poker.citypay.org
 
-
+---------- 2020-12-18
+D:\poker\web-poker\backend\room\src\main\java\ar\com\tandilweb\room\wsconfig\WebSocketConfig.java
+// registry.addEndpoint("/external").setAllowedOrigins("http://localhost:8000", "*").addInterceptors(new IpHandshakeInterceptor()).withSockJS(); //endpoints externos
+registry.addEndpoint("/external").setAllowedOrigins("*").addInterceptors(new IpHandshakeInterceptor()).withSockJS(); //endpoints externos
 -------------------------------
 2020-12-17
 D:\poker\web-poker\frontend\newClient\src\app\pages\room\room.component.ts
@@ -142,3 +180,17 @@ cd ../../room
 mvn clean package
 
 -------------------------------
+D:\poker\web-poker\frontend\cli-toolkit\src\app\app.component.ts
+private roomServer = '112.157.65.160:8081';
+
+
+
+2020-12-20 leave 구현 해보기
+D:\poker\web-poker\frontend\newClient\src\app\pages\room\nav-bar\nav-bar.component.html
+leave 버튼 
+  <button (click)="action.emit('leave')">Leave</button>
+D:\poker\web-poker\frontend\newClient\src\app\pages\room\room.component.ts
+doActionNav(event: string) { 에 leave 이벤트 구현
+
+
+
