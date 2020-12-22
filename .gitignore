@@ -78,3 +78,9 @@ local.properties
 .scala_dependencies
 .worksheet
 
+*.properties
+backend/ApiServer/src/main/resources/application.properties
+backend/ApiServer/src/main/resources/database.properties
+backend/orchestrator/src/main/resources/database.properties
+backend/room/src/main/resources/clientDetails.properties
+log/lastHandshake.json

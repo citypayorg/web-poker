@@ -193,4 +193,13 @@ D:\poker\web-poker\frontend\newClient\src\app\pages\room\room.component.ts
 doActionNav(event: string) { 에 leave 이벤트 구현
 
 
+D:\poker\web-poker\backend\room\src\main\java\ar\com\tandilweb\room\clientControllers\AuthController.java
+log.debug("auth.userID: " + auth.userID);
+
+D:\poker\web-poker\backend\room\src\main\java\ar\com\tandilweb\room\wsconfig\WebSocketMonitor.java
+
+D:\poker\web-poker\backend\room\src\main\java\ar\com\tandilweb\room\handlers\GameHandler.java
+  public int getRoomSitCount() { 추가
+
+
 

@@ -377,10 +377,10 @@ export class PokerComponent implements OnInit, OnDestroy {
     this.rxESubscription.unsubscribe();
   }
 
-  @HostListener('window:unload', ['$event'])
-  unloadNotification($event: any) {
-    this.room.leave();
-  }
+  // @HostListener('window:unload', ['$event'])
+  // unloadNotification($event: any) {
+  //   this.room.leave();
+  // }
 
   // @HostListener('window:beforeunload', ['$event'])
   // beforeunloadNotification($event: any) {

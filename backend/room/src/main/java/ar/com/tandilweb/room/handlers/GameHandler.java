@@ -175,5 +175,25 @@ public class GameHandler {
 	public void scheduleRoomStatus() throws JsonProcessingException {
 		ObjectMapper om = new ObjectMapper();
 		logger.info("[Room Monitor] Users in table: " + om.writeValueAsString(usersInTable));
+		logger.info("getRoomSitCount() : "+ getRoomSitCount() ); //부분에 방나간애들 삭제 하는 로직을 넣을까 고민중
+	}
+
+	public int getRoomSitCount() {
+		int cnt=0;
+		for(int i = 0; i<maxPlayers; i++) {
+			if(usersInTable[i] != null ) // 자료가 있을때
+			{
+				if(sessionHandler.isActiveSessionForUser(usersInTable[i].userID)) // SIT 상태일때
+				{
+					cnt = cnt + 1;
+				}else{
+					 // SIT 상태가 아니면 log out 했다 생각 하고 data 날려 버림  
+					//sessions.remove(session);
+					sessionHandler.remove(usersInTable[i].sessID);
+					usersInTable[i] = null;
+				}
+			}
+		}
+		return cnt;
 	}
 }

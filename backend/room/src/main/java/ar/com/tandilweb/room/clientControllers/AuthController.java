@@ -51,9 +51,11 @@ public class AuthController {
 	public Challenge authorization(Authorization auth, SimpMessageHeaderAccessor headerAccessor) {
 		String sessID = headerAccessor.getSessionId();
 		log.debug("New session: " + sessID);
+		// log.debug("auth.userID: " + auth.userID);
 		if(sessionHandler.isActiveSessionForUser(auth.userID)) {
 			ActiveSession activeSession = new ActiveSession();
 			sessionHandler.sendToUserID("/AuthController/activeSession", auth.userID, activeSession);
+			// log.debug("게임중sit인 userID: " + auth.userID); // log 추가 
 		}
 		Challenge challenge = new Challenge();
 		challenge.action = ChallengeActions.LOGIN;
