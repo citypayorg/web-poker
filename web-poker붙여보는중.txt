@@ -201,5 +201,42 @@ D:\poker\web-poker\backend\room\src\main\java\ar\com\tandilweb\room\wsconfig\Web
 D:\poker\web-poker\backend\room\src\main\java\ar\com\tandilweb\room\handlers\GameHandler.java
   public int getRoomSitCount() { 추가
 
+sessionHandler.remove(usersInTable[i].userID);
+        /////////// 2020-12-22 추가
+        sessionHandler.remove(session.getId());
+------->
+D:\poker\web-poker\backend\room\src\main\java\ar\com\tandilweb\room\handlers\SessionHandler.java
+	public void remove(String sessionID) {
+		userAssociation.remove(sessionID);
+		// TODO: close connection. (bind events?)
+	}
+    
+
+D:\poker\web-poker\backend\persistence\src\main\java\ar\com\tandilweb\persistence\repository\UsersInRoomsRepository.java
+	//2020-12-22
+	public void leaveRoom(Long id) {
+		final String sql = "DELETE FROM users_in_rooms WHERE id_user = ?";
+		jdbcTemplate.update(sql, new Object[]{id});
+	}
+D:\poker\web-poker\backend\orchestrator\src\main\java\ar\com\tandilweb\orchestrator\adapters\UserControlService.java
+//2020-12-22
+	public void leaveInRoom(Long userID) {
+		uirRepo.leaveRoom(roomID);
+	}
+
+ucs.leaveInRoom(userID);
+DB에서 삭제
+ucs.leaveInRoom(session.getId_user()); // 2020-12-22 추가 DB 에서 삭제
+
+D:\poker\web-poker\backend\room\src\main\java\ar\com\tandilweb\room\clientControllers\AuthController.java
 
 
+D:\poker\web-poker\backend\room\src\main\java\ar\com\tandilweb\room\handlers\GameHandler.java
+	public int getPositionOfUser(long userId) {
+		for(int i = 0; i<maxPlayers; i++) {
+			if(usersInTable[i] != null && usersInTable[i].userID == userId) {
+				return i;
+			}
+		}
+		return -1;
+	}

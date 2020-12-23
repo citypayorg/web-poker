@@ -91,6 +91,7 @@ public class ChallengesRepository extends BaseRepository<Challenges, Long> {
 	        		rs.getLong("id_room"),
 	        		rs.getString("challenge"), // claimToken
 	        		rs.getLong("deposit") //if is a deposit, the quanitity of deposit.
+					,rs.getInt("position") // 2020-12
 	        		);
 	    }
 	}

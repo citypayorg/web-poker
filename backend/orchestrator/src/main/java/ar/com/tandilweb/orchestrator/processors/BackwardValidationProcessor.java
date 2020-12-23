@@ -58,13 +58,15 @@ public class BackwardValidationProcessor {
 		}
 		// TODO: *BUG* remove the challenge from database to prevent reuse the old challenge.
 		DataChallenge<Users> dch = new DataChallenge<Users>();
-		dch.claimToken = challenge.getChallenge();
-		dch.idUser = challenge.getId_user();
-		dch.transactionID = inputSchema.transactionID;
-		dch.userData = userRepository.findById(challenge.getId_user());
+		dch.claimToken 		= challenge.getChallenge();
+		dch.idUser 			= challenge.getId_user();
+		dch.transactionID 	= inputSchema.transactionID;
+		dch.userData 		= userRepository.findById(challenge.getId_user());
 		dch.userData.setPassword("*****");
-		dch.challengeID = challenge.getChallengeID();
-		userService.addUserInRoom(challenge.getId_user(), challenge.getId_room());
+		dch.challengeID		= challenge.getChallengeID();
+		// dch.position		= challenge.getPosition(); // 2020-12
+		// userService.addUserInRoom(challenge.getId_user(), challenge.getId_room());
+		userService.addUserInRoom(challenge.getId_user(), challenge.getId_room(), challenge.getPosition());
 		// send to room.
 		return dch;
 	}

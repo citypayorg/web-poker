@@ -174,23 +174,30 @@ public class GameHandler {
 	@Scheduled(fixedRate = 60000)
 	public void scheduleRoomStatus() throws JsonProcessingException {
 		ObjectMapper om = new ObjectMapper();
-		logger.info("[Room Monitor] Users in table: " + om.writeValueAsString(usersInTable));
 		logger.info("getRoomSitCount() : "+ getRoomSitCount() ); //부분에 방나간애들 삭제 하는 로직을 넣을까 고민중
+
+		logger.info("[Room Monitor] Users in table: " + om.writeValueAsString(usersInTable));
 	}
 
 	public int getRoomSitCount() {
 		int cnt=0;
-		for(int i = 0; i<maxPlayers; i++) {
+		for(int i = 0; i<maxPlayers; i++) { //for(int i = 0; i<usersInTable.length; i++) {
 			if(usersInTable[i] != null ) // 자료가 있을때
 			{
+				// logger.info("usersInTable[i].userID :"+ sessionHandler.isActiveSessionForUser(usersInTable[i].userID));
+				// 2020-12-22 18:40:19.352  INFO 12968 --- [MessageBroker-7] a.c.tandilweb.room.handlers.GameHandler  : usersInTable[i].userID :true
+				// logger.info("usersInTable[i].sessID :"+ usersInTable[i].sessID);
 				if(sessionHandler.isActiveSessionForUser(usersInTable[i].userID)) // SIT 상태일때
 				{
 					cnt = cnt + 1;
 				}else{
-					 // SIT 상태가 아니면 log out 했다 생각 하고 data 날려 버림  
-					//sessions.remove(session);
-					sessionHandler.remove(usersInTable[i].sessID);
+					// SIT 상태가 아니면 log out 했다 생각 하고 data 날려 버림  
+					// sessionHandler.remove(usersInTable[i].userID);
 					usersInTable[i] = null;
+					logger.info("/backend/room/src/main/java/ar/com/tandilweb/room/handlers/GameHandler.java usersInTable["+i+"]:"+usersInTable[i]);
+					//  usersInTable.splice(i, 1);
+					// sessions.remove(usersInTable[i].sessID);
+					sessionHandler.remove(usersInTable[i].sessID);
 				}
 			}
 		}

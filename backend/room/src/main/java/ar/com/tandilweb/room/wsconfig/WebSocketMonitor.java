@@ -10,9 +10,13 @@ import org.springframework.messaging.SubscribableChannel;
 import org.springframework.web.socket.CloseStatus;
 import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.messaging.SubProtocolWebSocketHandler;
+import ar.com.tandilweb.room.handlers.SessionHandler;  // 2020-12-22 추가
 
 public class WebSocketMonitor extends SubProtocolWebSocketHandler {
-	
+
+	//@Autowired
+	private SessionHandler sessionHandler;  // 2020-12-22 추가
+    	
 	//@Autowired
 	//private ServerManager serverManager;
 
@@ -34,6 +38,11 @@ public class WebSocketMonitor extends SubProtocolWebSocketHandler {
     @Override
     public void afterConnectionClosed(WebSocketSession session, CloseStatus status) throws Exception {
     	log.debug("SESSION CLOSED ID["+session.getId()+"]");
+        try{
+            sessionHandler.remove(session.getId());  // 2020-12-22 추가
+        }catch(Exception e){
+            log.debug(session.getId() +" / "+e);
+        }
     	//serverManager.unRegister(session.getId());
         sessions.remove(session);
         super.afterConnectionClosed(session, status);

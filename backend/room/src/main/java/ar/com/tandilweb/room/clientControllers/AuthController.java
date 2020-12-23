@@ -115,5 +115,15 @@ public class AuthController {
 	
 	// TODO: make leave schema implementation.
 	
+	// @MessageMapping("/leaveInRoom")
+	// public void leaveInRoom(){
+		
+	// 	ObjectMapper om = new ObjectMapper();
+	// 	try {
+	// 		orchestrator.sendDataToServer(om.writeValueAsString(auth.userID));
+	// 	} catch (JsonProcessingException e) {
+	// 		log.error("Error processing challenge validation", e);
+	// 	}
+	// }
 
 }

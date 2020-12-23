@@ -18,11 +18,12 @@ public class UserControlService {
 	@Autowired
 	private UsersInRoomsRepository uirRepo;
 	
-	public void addUserInRoom(Long userID, Long roomID) {
+	public void addUserInRoom(Long userID, Long roomID,int position) {
 		UsersInRooms record = new UsersInRooms();
 		record.setId_room(roomID);
 		record.setId_user(userID);
-		record.setPosition(-1);
+		// record.setPosition(-1);
+		record.setPosition(position); // 2020-12
 		record.setRegistered(new Date());
 		uirRepo.create(record);
 	}
@@ -30,5 +31,11 @@ public class UserControlService {
 	public void removeUsersInRoom(Long roomID) {
 		uirRepo.removeAll(roomID);
 	}
+
+	//2020-12-22
+	public void leaveInRoom(Long userID) {
+		uirRepo.leaveRoom(userID);
+	}
+	
 
 }

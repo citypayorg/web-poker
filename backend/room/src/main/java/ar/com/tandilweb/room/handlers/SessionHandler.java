@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 
 import ar.com.tandilweb.room_int.handlers.SessionHandlerInt;
 import ar.com.tandilweb.room_int.handlers.dto.UserData;
+// import ar.com.tandilweb.orchestrator.persistence.repository.UsersInRoomsRepository;  // 2020-12-22 추가
 
 @Service
 public class SessionHandler implements SessionHandlerInt {
@@ -24,6 +25,9 @@ public class SessionHandler implements SessionHandlerInt {
 
 	private Map<String, UserData> userAssociation = new HashMap<String, UserData>(); 
 	
+	// @Autowired
+	// private UsersInRoomsRepository uirRepo;  // 2020-12-22 추가
+
 	@Autowired
 	private SimpMessagingTemplate msgTmp;
 	
@@ -96,6 +100,7 @@ public class SessionHandler implements SessionHandlerInt {
 	public void remove(String sessionID) {
 		userAssociation.remove(sessionID);
 		// TODO: close connection. (bind events?)
+		// ucs.leaveInRoom(session.getId_user()); // 2020-12-22 추가 DB 에서 삭제
 	}
 	
 	public void sendToUserID(String direction, long userID, Object payload) {

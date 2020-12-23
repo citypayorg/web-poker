@@ -77,6 +77,11 @@ public class UsersInRoomsRepository extends BaseRepository<UsersInRooms, Long> {
 		return jdbcTemplate.queryForObject(sql, new Object[] { roomID }, Long.class);
 	}
 	
+	//2020-12-22
+	public void leaveRoom(Long id) {
+		final String sql = "DELETE FROM users_in_rooms WHERE id_user = ?";
+		jdbcTemplate.update(sql, new Object[]{id});
+	}
 	
 	class UsersInRoomsRowMapper implements RowMapper<UsersInRooms> {
 		public UsersInRooms mapRow(ResultSet rs, int rowNum) throws SQLException {

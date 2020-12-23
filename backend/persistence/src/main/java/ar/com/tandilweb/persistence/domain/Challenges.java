@@ -7,14 +7,16 @@ public class Challenges {
 	private long id_room;
 	private String challenge;
 	private Long deposit;
-	
-	public Challenges(long challengeID, long id_user, long id_room, String challenge, Long deposit) {
+	private int position;
+
+	public Challenges(long challengeID, long id_user, long id_room, String challenge, Long deposit,int position) {
 		super();
 		this.challengeID = challengeID;
-		this.id_user = id_user;
-		this.id_room = id_room;
-		this.challenge = challenge;
-		this.deposit = deposit;
+		this.id_user 	= id_user;
+		this.id_room 	= id_room;
+		this.challenge 	= challenge;
+		this.deposit 	= deposit;
+		this.position 	= position; // 2020-12
 	}
 	
 	public Challenges() {
@@ -59,6 +61,15 @@ public class Challenges {
 
 	public void setDeposit(Long deposit) {
 		this.deposit = deposit;
+	}
+
+//2020-12
+	public int getPosition() {
+		return position;
+	}
+
+	public void setPosition(int position) {
+		this.position = position;
 	}
 
 }
